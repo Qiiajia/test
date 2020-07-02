@@ -5,29 +5,35 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
-    - name: 'deployment pending'
-      uses: 'deliverybot/deployment-status@master'
-      with:
-        state: 'pending'
-        token: '${{ github.token }}'
-
-    - uses: actions/checkout@v2
-    - name: deploy
-      run: |
-        echo "environment - ${{ github.event.deployment.task }}"
-        echo "payload - ${{ github.event.deployment.payload }}"
-        make make-test
-
-    - name: 'deployment success'
-      if: success()
-      uses: 'deliverybot/deployment-status@master'
-      with:
-        state: 'success'
-        token: '${{ github.token }}'
-
-    - name: 'deployment failure'
-      if: failure()
-      uses: 'deliverybot/deployment-status@master'
-      with:
-        state: 'failure'
-        token: '${{ github.token }}'
+      - uses: actions/checkout@v2
+      - name: deploy nnabla.org
+        run: |
+          echo "environment - ${{ github.event.deployment.task }}"
+          echo "payload - ${{ github.event.deployment.payload }}"
+          make make-test
+#    - name: 'deployment pending'
+#      uses: 'deliverybot/deployment-status@master'
+#      with:
+#        state: 'pending'
+#        token: '${{ github.token }}'
+#
+#    - uses: actions/checkout@v2
+#    - name: deploy
+#      run: |
+#        echo "environment - ${{ github.event.deployment.task }}"
+#        echo "payload - ${{ github.event.deployment.payload }}"
+#        make make-test
+#
+#    - name: 'deployment success'
+#      if: success()
+#      uses: 'deliverybot/deployment-status@master'
+#      with:
+#        state: 'success'
+#        token: '${{ github.token }}'
+#
+#    - name: 'deployment failure'
+#      if: failure()
+#      uses: 'deliverybot/deployment-status@master'
+#      with:
+#        state: 'failure'
+#        token: '${{ github.token }}'
