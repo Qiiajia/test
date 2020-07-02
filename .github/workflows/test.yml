@@ -11,6 +11,7 @@ jobs:
         state: 'pending'
         token: '${{ github.token }}'
 
+    - uses: actions/checkout@v2
     - name: deploy
       run: |
         echo "environment - ${{ github.event.deployment.task }}"
