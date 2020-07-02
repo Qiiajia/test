@@ -15,6 +15,7 @@ jobs:
       run: |
         echo "environment - ${{ github.event.deployment.task }}"
         echo "payload - ${{ github.event.deployment.payload }}"
+        make make-test
 
     - name: 'deployment success'
       if: success()
