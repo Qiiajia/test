@@ -1,5 +1,5 @@
 name: Test
-on: ['deployment']
+on: ['push']
 jobs:
   deployment:
     runs-on: 'ubuntu-latest'
