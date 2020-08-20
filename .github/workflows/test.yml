@@ -19,12 +19,4 @@ jobs:
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
           DOCKERHUB_REPOSITORY: jiaqi2020/test2020
           README_FILEPATH: ./README.md
-#    - name: 'deployment pending'
-#      uses: 'deliverybot/deployment-status@master'
-#      with:
-#        state: 'pending'
-#        token: '${{ github.token }}'
-#
-#    - uses: actions/checkout@v2
-#    - name: deploy
-#   
+
