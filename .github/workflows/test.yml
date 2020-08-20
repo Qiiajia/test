@@ -11,6 +11,14 @@ jobs:
           echo "environment - ${{ github.event.deployment.task }}"
           echo "payload - ${{ github.event.deployment.payload }}"
           make make-test
+      
+      - name: Docker Hub Description
+      - uses: peter-evans/dockerhub-description@v2
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+          DOCKERHUB_REPOSITORY: jiaqi2020/test2020
+          README_FILEPATH: ./README.md
 #    - name: 'deployment pending'
 #      uses: 'deliverybot/deployment-status@master'
 #      with:
